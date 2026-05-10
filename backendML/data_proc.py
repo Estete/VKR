@@ -15,4 +15,4 @@ for input_file in FOLDER.glob("*.json"):
         writer.writeheader()
         writer.writerows(data)
 
-    print(f"✅ {input_file.name} → {output_file.name}  ({len(data)} строк)")
+    print(f"[OK] {input_file.name} -> {output_file.name}  ({len(data)} строк)")

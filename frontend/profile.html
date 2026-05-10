@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль — PC Builder</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="page-layout">
+
+  <header class="page-header">
+    <a href="/chat.html" class="back-link">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      Назад
+    </a>
+    <h1>Профиль</h1>
+  </header>
+
+  <div class="page-body">
+    <div class="profile-card">
+      <div class="profile-avatar" id="profile-avatar">?</div>
+      <div class="profile-username" id="profile-username">—</div>
+      <div class="profile-email" id="profile-email">—</div>
+
+      <div class="profile-actions">
+        <a href="/builds.html" class="btn-outline">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+          </svg>
+          Мои сборки
+        </a>
+
+        <button class="btn-logout" id="btn-logout">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          Выйти из аккаунта
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="/app.js"></script>
+<script>
+  (async () => {
+    const user = await requireAuth();
+    if (!user) return;
+
+    document.getElementById('profile-avatar').textContent   = user.username[0].toUpperCase();
+    document.getElementById('profile-username').textContent = user.username;
+    document.getElementById('profile-email').textContent    = user.email;
+  })();
+
+  document.getElementById('btn-logout').addEventListener('click', logout);
+</script>
+</body>
+</html>

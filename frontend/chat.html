@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Builder AI</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="layout">
+
+  <!-- ── Левый сайдбар ── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <span class="logo">PC Builder AI</span>
+    </div>
+
+    <div style="padding: 0 8px">
+      <button class="btn-new-chat" id="btn-new-chat">+ Новый чат</button>
+    </div>
+
+    <ul class="chat-list" id="chat-list">
+      <!-- заполняется JS -->
+    </ul>
+
+    <div class="sidebar-footer">
+      <a href="/profile.html" class="sidebar-link">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+        <span id="sidebar-username">Профиль</span>
+      </a>
+      <a href="/builds.html" class="sidebar-link">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+        </svg>
+        Мои сборки
+      </a>
+    </div>
+  </aside>
+
+  <!-- ── Основная область ── -->
+  <div class="chat-area">
+    <div class="chat-header">
+      <button class="btn-collapse" id="btn-toggle-sidebar" title="Свернуть сайдбар">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <line x1="3" y1="6"  x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <span class="chat-name" id="chat-name">Новый чат</span>
+    </div>
+
+    <div class="messages" id="messages">
+      <div class="messages-empty" id="messages-empty">
+        <div class="big-icon">PC</div>
+        <p>Опишите, какой ПК вам нужен</p>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <div class="input-row">
+        <textarea
+          class="msg-input"
+          id="msg-input"
+          placeholder="Напишите запрос... (Enter — отправить, Shift+Enter — перенос строки)"
+          rows="1"
+        ></textarea>
+        <button class="btn-send" id="btn-send" disabled title="Отправить">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Правая панель (артефакт) ── -->
+  <div class="right-panel" id="right-panel">
+    <div class="panel-header">
+      <button class="btn-collapse" id="btn-close-panel" title="Закрыть">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <span class="panel-title" id="panel-title">Сборки</span>
+    </div>
+
+    <div class="build-tabs" id="build-tabs"></div>
+    <div class="panel-body" id="panel-body"></div>
+  </div>
+
+</div>
+
+<script src="/app.js"></script>
+<script src="/chat.js"></script>
+</body>
+</html>

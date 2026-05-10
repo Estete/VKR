@@ -22,6 +22,6 @@ with open(OUTPUT_FILE, "w", newline="", encoding="utf-8") as f:
     writer.writeheader()
     writer.writerows(clean_data)
 
-print(f"✅ {INPUT_FILE} → {OUTPUT_FILE}")
+print(f"[OK] {INPUT_FILE} -> {OUTPUT_FILE}")
 print(f"   Столбцы проверки: {CHECK_COLUMNS}")
 print(f"   Всего: {len(data)}  |  Удалено: {removed}  |  Осталось: {len(clean_data)}")
